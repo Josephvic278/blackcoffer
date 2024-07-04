@@ -8,16 +8,22 @@ def dashboard(request):
     jd = ""
     with open("/storage/emulated/0/jsondata.json", "r") as d:
         jd = json.load(d)
-    
     for get in jd:
+        print(get["title"])
         end_year = get["end_year"]
+        if end_year == "":
+            end_year = None
         intensity = get["intensity"]
+        if intensity == "":
+            intensity = None
         sector = get["sector"] 
         topic = get["topic"]
         insight = get["insight"]
         url = get["url"]
         region = get["region"]
         start_year = get["start_year"]
+        if start_year == "":
+            start_year = None
         impact = get["impact"]
         added = get["added"]
         published = get["published"]
@@ -31,6 +37,6 @@ def dashboard(request):
         new_info.save()
         
         print("Saved!!!", print(new_info))
-        time.sleep(1)
+        #time.sleep(1)
     print(Info.objects.all())
     return render(request, "dashboard.html")

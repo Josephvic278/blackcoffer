@@ -13,8 +13,8 @@ class Info(models.Model):
     start_year = models.IntegerField(null=True,
     validators=[MinValueValidator(1800), MaxValueValidator])
     impact = models.CharField(max_length=255, null=True)
-    added = models.DateTimeField(null=True, default=None)
-    published = models.DateTimeField(null=True)
+    added = models.CharField(max_length=255, null=True)
+    published = models.CharField(null=True, max_length=255)
     country = models.CharField(max_length=255, null=True)
     relevance = models.CharField(max_length=255, null=True)
     pestle = models.CharField(max_length=255, null=True)
